@@ -53,7 +53,36 @@ int main()
 
 	Circle c {Point{700,700}, 100};
 
-	win.attach(ii);
+	Polygon poly;
+
+	poly.add(Point{300,200});
+	poly.add(Point{350,100});
+	poly.add(Point{400,200});
+	poly.set_color(Color::red);
+
+	Closed_polyline poly_rect;
+
+	poly_rect.add(Point{100,50});
+	poly_rect.add(Point{200,50});
+	poly_rect.add(Point{200,100});
+	poly_rect.add(Point{100,100});
+	poly_rect.add(Point{50,75});
+
+	Mark m {Point{100,200},'x'};
+
+	ostringstream oss;
+	oss<< "screen size: "<< x_max() << ":" << y_max()
+	<< " Window size: " << win.x_max()<<":"<<win.y_max();
+
+	Text sizes {Point{20,20},oss.str()};
+
+	win.attach(sizes);
+
+	/*win.attach(m);
+
+	win.attach(poly_rect);
+	win.attach(poly);
+	//win.attach(ii);
 	win.attach(c);
 	win.attach(t);
 	win.attach(r);
@@ -61,7 +90,7 @@ int main()
 	win.attach(sq);
 	win.attach(cos_func);
 	win.attach(x);
-	win.attach(y);
+	win.attach(y);*/
 
     win.wait_for_button();
 

@@ -1,8 +1,8 @@
 #include "std_lib_facilities.h"
 
-class B1
+struct B1
 {
-    public:
+    
     virtual void vf()
     {
         cout << "B1 vf()"<<"\n";
@@ -19,9 +19,8 @@ class B1
 };
 
 
-class D1 : public B1
+struct D1 : B1
 {
-    public:
     void vf() override
     {
         cout << "D1 vf()"<<"\n";
@@ -32,33 +31,31 @@ class D1 : public B1
     }
 };
 
-class D2 : public D1
-{   public:
+struct D2 : D1
+{  
     void pvf() override
     {
         cout << "D2 pvf()"<<"\n";
     }
 };
 
-class B2
-{   public:
+struct B2
+{   
     virtual void pvf()=0;
 };
 
-class D21 : public B2
+struct D21 : B2
 {
     string s= "Szöveg";
-    public:
     void pvf()
     {
         cout << s<<"\n";
     };
 };
 
-class D22 : public B2
+struct D22 : B2
 {
     int szam = 20;
-    public:
     void pvf() override
     {
         cout << szam <<"\n";
